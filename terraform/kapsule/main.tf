@@ -5,7 +5,7 @@ provider "scaleway" {
 
 resource "scaleway_k8s_cluster" "matrix-infra" {
   name             = "matrix-infra"
-  version          = "1.19.7"
+  version          = "1.20.5"
   cni              = "cilium"
   enable_dashboard = true
   ingress          = "nginx"
