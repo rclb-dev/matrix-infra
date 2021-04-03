@@ -13,9 +13,7 @@ resource "scaleway_k8s_pool" "matrix" {
   cluster_id  = scaleway_k8s_cluster.matrix-infra.id
   name        = "matrix"
   node_type   = "DEV1-M"
-  size        = 2
-  min_size    = 1
-  max_size    = 3
+  size        = 1
   autohealing = true
   tags        = ["matrix"]
 }
@@ -24,9 +22,7 @@ resource "scaleway_k8s_pool" "storage" {
   cluster_id  = scaleway_k8s_cluster.matrix-infra.id
   name        = "storage"
   node_type   = "DEV1-M"
-  size        = 2
-  min_size    = 1
-  max_size    = 3
+  size        = 1
   autohealing = true
   tags        = ["storage"]
 }
