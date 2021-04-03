@@ -3,8 +3,8 @@ provider "scaleway" {
   region          = "fr-par"
 }
 
-resource "scaleway_k8s_cluster" "matrix" {
-  name             = "matrix"
+resource "scaleway_k8s_cluster" "matrix-infra" {
+  name             = "matrix-infra"
   version          = "1.19.7"
   cni              = "cilium"
   enable_dashboard = true
@@ -12,7 +12,7 @@ resource "scaleway_k8s_cluster" "matrix" {
 }
 
 resource "scaleway_k8s_pool" "matrix" {
-  cluster_id  = scaleway_k8s_pool.matrix.id
+  cluster_id  = scaleway_k8s_cluster.matrix-infra.id
   name        = "matrix"
   node_type   = "DEV1-S"
   size        = 2
@@ -23,7 +23,7 @@ resource "scaleway_k8s_pool" "matrix" {
 }
 
 resource "scaleway_k8s_pool" "storage" {
-  cluster_id  = scaleway_k8s_pool.matrix.id
+  cluster_id  = scaleway_k8s_cluster.matrix-infra.id
   name        = "storage"
   node_type   = "DEV1-S"
   size        = 2
