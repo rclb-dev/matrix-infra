@@ -7,7 +7,6 @@ resource "scaleway_k8s_cluster" "matrix-infra" {
   name             = "matrix-infra"
   version          = "1.20.5"
   cni              = "cilium"
-  ingress          = "nginx"
 }
 
 resource "scaleway_k8s_pool" "matrix" {
